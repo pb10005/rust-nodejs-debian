@@ -1,2 +1,2 @@
-alias cargo='docker run -it --rm --add-host=localhost:10.0.2.15 --volume `pwd`:/docker --workdir /docker rust-cargo-diesel cargo'
-alias diesel='docker run -it --rm --add-host=localhost:10.0.2.15 --volume `pwd`:/docker --workdir /docker rust-cargo-diesel diesel'
+alias cargo='docker run -it --rm --add-host=localhost:10.0.2.15 -p 3000:3000 --volume `pwd`:/docker --workdir /docker rust-cargo-diesel cargo'
+alias diesel='docker run -it --rm --add-host=localhost:10.0.2.15 --volume `pwd`:/docker --workdir /docker rust-cargo-diesel diesel'                     
