@@ -32,6 +32,8 @@ Vagrant.configure("2") do |config|
 
     server.vm.network "forwarded_port", guest: 3000, host: 3030
 
+    server.vm.provision "shell", path: "./shell/cargo-init.sh", privileged: false
+
     server.vm.provision "ansible_local" do |ansible|
       ansible.playbook = "/vagrant/ansible/playbook.yml"
     end
@@ -43,8 +45,6 @@ Vagrant.configure("2") do |config|
       d.run "redis",
         image: "redis",
         args: '-d -p 6379:6379'
-      d.build_image "/vagrant/docker",
-        args: '-t rust-cargo-diesel'
     end
   end
 end
